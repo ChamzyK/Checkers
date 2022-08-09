@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="CheckersUI.UserControls.BoardUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="650">
+
+    <UserControl.Resources>
+
+        <SolidColorBrush x:Key="WhiteSquareColor"
+                         Color="LightGray"/>
+        <SolidColorBrush x:Key="BlackSquareColor"
+                         Color="#333333"/>
+        <SolidColorBrush x:Key="SelectedSquareColor"
+                         Color="Wheat"/>
+        <SolidColorBrush x:Key="WhiteCheckersColor"
+                         Color="LightGray"/>
+        <SolidColorBrush x:Key="BlackCheckersColor"
+                         Color="#005999"/>
+
+        <Style TargetType="Rectangle">
+            <Setter Property="Stroke" Value="{StaticResource DarkColor}"/>
+            <Setter Property="StrokeThickness" Value="1"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Panel.ZIndex" Value="1"/>
+        </Style>
+
+        <Style TargetType="Ellipse">
+            <Setter Property="StrokeThickness" Value="10"/>
+            <Setter Property="Margin" Value="10,10,0,0"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Panel.ZIndex" Value="2"/>
+        </Style>
+
+        <Style TargetType="Polygon">
+            <Setter Property="StrokeThickness" Value="10"/>
+            <Setter Property="Margin" Value="10,10,0,0"/>
+            <Setter Property="Points" Value="10,40,40,10,70,40,40,70"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Panel.ZIndex" Value="2"/>
+        </Style>
+
+        <Ellipse x:Key="WhiteCheck"
+                 x:Shared="false"
+                 Stroke="{StaticResource BlackCheckersColor}"
+                 Fill="{StaticResource WhiteCheckersColor}"/>
+
+        <Ellipse x:Key="BlackCheck"
+                 x:Shared="false"
+                 Stroke="{StaticResource WhiteCheckersColor}"
+                 Fill="{StaticResource BlackCheckersColor}"/>
+
+        <Polygon x:Key="WhiteQueen"
+                 x:Shared="false"
+                 Stroke="{StaticResource BlackCheckersColor}"
+                 Fill="{StaticResource WhiteCheckersColor}"/>
+
+        <Polygon x:Key="BlackQueen"
+                 x:Shared="false"
+                 Stroke="{StaticResource WhiteCheckersColor}"
+                 Fill="{StaticResource BlackCheckersColor}"/>
+
+        <Rectangle x:Key="WhiteSquare" 
+                 x:Shared="false"
+                   Fill="{StaticResource WhiteSquareColor}"/>
+
+        <Rectangle x:Key="BlackSquare" 
+                 x:Shared="false"
+                   Fill="{StaticResource BlackSquareColor}"/>
+
+        <Rectangle x:Key="SelectedSquare"
+                   x:Shared="false"
+                   StrokeThickness="5"
+                   Stroke="{StaticResource BlueColor}"
+                   Fill="{StaticResource BlackSquareColor}"/>
+    </UserControl.Resources>
+
+    <Viewbox Stretch="Fill">
+        <Canvas x:Name="BoardUI"
+                Height="800"
+                Width="800"
+                MouseLeftButtonDown="BoardUI_MouseDown"/>
+    </Viewbox>
+</UserControl>

@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="CheckersUI.UserControls.GameUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:uc="clr-namespace:CheckersUI.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="650">
+    
+    <Grid x:Name="GameGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="1"
+                   Text="Шашки"
+                   FontSize="35"/>
+
+        <Button Content="Меню"
+                Grid.Column="1"
+                Grid.Row="2"
+                Margin="0,10"
+                BorderThickness="0"
+                Click="Menu_Click"/>
+        
+        <uc:BoardUC x:Name="GameField"
+                    Grid.Row="1"
+                    Grid.Column="1"/>
+
+
+    </Grid>
+    
+</UserControl>
