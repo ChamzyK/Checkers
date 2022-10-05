@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            GetGame(args[0]).Start();
+            var path = args.Length == 1 ? args[0] : string.Empty;
+            GetGame(path).Start();
         }
         static IGame GetGame(string path)
         {
